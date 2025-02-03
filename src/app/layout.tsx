@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Raleway, } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 
 const afacad = Raleway({
@@ -26,7 +27,10 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className={`${afacad.className}  antialiased`}>
-          <main>{children}</main>
+          <main>
+            {children}
+            <Analytics />
+            </main>
           <Toaster />
         </body>
       </html>
